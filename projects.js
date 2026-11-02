@@ -1,6 +1,58 @@
 // Project selection character foreground; existing gallery and links preserved.
 const projects = [
   {
+    "id": "heukryeon",
+    "title": "흑련",
+    "shortTitle": "흑련 캐릭터 기획",
+    "english": "HEUKRYEON",
+    "type": "IP REINTERPRETATION",
+    "source": "몬길: STAR DIVE · 개인 캐릭터 기획",
+    "subtitle": "기존 IP 재해석 및 캐릭터 설정 기획",
+    "image": "portfolio-20261027/heukryeon.webp",
+    "background": "portfolio-20261027/heukryeon.webp",
+    "character": "portfolio-20261027/heukryeon.webp",
+    "caption": "익숙한 외형 위에, 대화와 성장의 매력을.",
+    "roman": "I",
+    "hook": "능청스러운 농담 뒤에,\n알아갈수록 응원하게 되는 동료.",
+    "description": "원작 흑련의 쿵푸 소녀 이미지를 계승하고, 능청스러운 대화와 성장 서사로 매력을 확장했습니다. 무술 가문과의 갈등·수련 경험을 본편 합류와 동료 관계에 연결했습니다.",
+    "scope": "타깃 · 리뉴얼 방향 · 설정 · 서사 · 대사",
+    "structure": "원작 분석 → 매력 정의 → 설정·관계 → 대사",
+    "tags": [
+      "IP 재해석",
+      "캐릭터 매력 설계",
+      "상황별 대사"
+    ],
+    "pages": [
+      {
+        "number": 9,
+        "image": "assets/portfolio-20261027/page-09.webp",
+        "title": "프로젝트 개요와 리뉴얼 방향"
+      },
+      {
+        "number": 10,
+        "image": "assets/portfolio-20261027/page-10.webp",
+        "title": "타깃 유저와 캐릭터 경험"
+      },
+      {
+        "number": 11,
+        "image": "assets/portfolio-20261027/page-11.webp",
+        "title": "캐릭터 특징과 상황별 대사"
+      },
+      {
+        "number": 12,
+        "image": "assets/portfolio-20261027/page-12.webp",
+        "title": "성장 서사와 본편 합류"
+      }
+    ],
+    "links": [
+      {
+        "label": "기획 파일 보기",
+        "url": "https://docs.google.com/spreadsheets/d/1GwfyC73z-HrUrqqLB0Bpcd2prurVJK4pTMSCinAKMvI/edit?usp=sharing"
+      }
+    ],
+    "characterClass": "standing"
+  },
+  {
     "id": "misttrain",
     "title": "안개 열차",
     "shortTitle": "안개 열차",
@@ -12,7 +64,7 @@ const projects = [
     "background": "portfolio-20261027/misttrain.webp",
     "character": null,
     "caption": "남겨진 기억에서, 살아온 시간의 의미를 찾다.",
-    "roman": "I",
+    "roman": "II",
     "hook": "남겨진 기억을 따라,\n각자의 삶과 마지막 이별을 마주하다.",
     "description": "사후세계의 열차에서 승객들의 기억과 미련을 알아가는 내러티브 게임입니다. 세계관·시나리오·상호작용을 설계하고, AI를 활용해 도윤 에피소드의 웹 프로토타입을 제작했습니다.",
     "scope": "세계관 · 시나리오 · 상호작용 · 웹 구현",
@@ -68,7 +120,7 @@ const projects = [
     "character": "portfolio-20261027/dj-ghost.webp",
     "characterClass": "halloween",
     "caption": "외면받던 유령에서, 축제의 동료로.",
-    "roman": "II",
+    "roman": "III",
     "hook": "외면받던 유령들이\n축제를 함께 만드는 동료가 되기까지.",
     "description": "사라진 호박과 사탕을 추적하며 유령들의 사정을 알아가고, 함께 축제를 완성하는 시즌 이벤트입니다. 스토리 퀘스트에 반복 던전과 한정 보상을 연결했습니다.",
     "scope": "퀘스트 · NPC 대사 · 컷신 · 반복 콘텐츠",
@@ -106,58 +158,6 @@ const projects = [
         "url": "https://docs.google.com/spreadsheets/d/1Th0tqZvmqm3-gnvEEzAT_szcpNDct0GyieqEcBxv5Ug/edit?usp=sharing"
       }
     ]
-  },
-  {
-    "id": "heukryeon",
-    "title": "흑련",
-    "shortTitle": "흑련 캐릭터 기획",
-    "english": "HEUKRYEON",
-    "type": "IP REINTERPRETATION",
-    "source": "몬길: STAR DIVE · 개인 캐릭터 기획",
-    "subtitle": "기존 IP 재해석 및 캐릭터 설정 기획",
-    "image": "portfolio-20261027/heukryeon.webp",
-    "background": "portfolio-20261027/heukryeon.webp",
-    "character": "portfolio-20261027/heukryeon.webp",
-    "caption": "익숙한 외형 위에, 대화와 성장의 매력을.",
-    "roman": "III",
-    "hook": "능청스러운 농담 뒤에,\n알아갈수록 응원하게 되는 동료.",
-    "description": "원작 흑련의 쿵푸 소녀 이미지를 계승하고, 능청스러운 대화와 성장 서사로 매력을 확장했습니다. 무술 가문과의 갈등·수련 경험을 본편 합류와 동료 관계에 연결했습니다.",
-    "scope": "타깃 · 리뉴얼 방향 · 설정 · 서사 · 대사",
-    "structure": "원작 분석 → 매력 정의 → 설정·관계 → 대사",
-    "tags": [
-      "IP 재해석",
-      "캐릭터 매력 설계",
-      "상황별 대사"
-    ],
-    "pages": [
-      {
-        "number": 9,
-        "image": "assets/portfolio-20261027/page-09.webp",
-        "title": "프로젝트 개요와 리뉴얼 방향"
-      },
-      {
-        "number": 10,
-        "image": "assets/portfolio-20261027/page-10.webp",
-        "title": "타깃 유저와 캐릭터 경험"
-      },
-      {
-        "number": 11,
-        "image": "assets/portfolio-20261027/page-11.webp",
-        "title": "캐릭터 특징과 상황별 대사"
-      },
-      {
-        "number": 12,
-        "image": "assets/portfolio-20261027/page-12.webp",
-        "title": "성장 서사와 본편 합류"
-      }
-    ],
-    "links": [
-      {
-        "label": "기획 파일 보기",
-        "url": "https://docs.google.com/spreadsheets/d/1GwfyC73z-HrUrqqLB0Bpcd2prurVJK4pTMSCinAKMvI/edit?usp=sharing"
-      }
-    ],
-    "characterClass": "standing"
   },
   {
     "id": "food",
