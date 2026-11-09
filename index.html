@@ -121,6 +121,23 @@
 .contact-email:hover svg{transform:translate(3px,-3px)}
 @media(max-width:780px){.contact-section{padding:44px 0 50px;margin-top:24px}.contact-section h2{margin-bottom:21px}.contact-email{gap:20px}.contact-email svg{width:20px;height:20px}}
 @media(prefers-reduced-motion:reduce){.contact-email,.contact-email svg{transition:none}.contact-email:hover svg{transform:none}}
+
+/* A single DANA introduction, with matching lines and a permanent closing title. */
+.dana-concept{position:relative}
+.dana-story .eyebrow{margin-bottom:20px}
+.dana-story .dana-sentence{margin:0 0 10px;color:rgba(244,240,231,.3);font-size:clamp(12px,1.15vw,17px);font-weight:400;line-height:1.95;letter-spacing:-.025em;word-break:keep-all;transition:color .65s}
+.dana-story .dana-sentence:last-child{margin-bottom:0}
+.dana-story .dana-sentence.is-active{color:#f4f0e7}
+.dana-story.is-complete .dana-sentence{color:rgba(244,240,231,.8)}
+.dana-final{position:absolute;left:0;right:28px;top:82px;opacity:0;visibility:hidden;margin:0;font-size:clamp(26px,3vw,44px);font-weight:400;line-height:1.5;letter-spacing:-.05em;transform:translateY(15px);transition:opacity .8s,transform .8s,visibility .8s}
+.dana-final strong{font-weight:800;color:var(--gold)}
+.dana-concept.is-finished .dana-word{visibility:hidden}
+.dana-concept.is-finished .dana-final{visibility:visible;opacity:1;transform:translateY(0)}
+.dana-concept.is-finished .dana-sequence>span{color:var(--gold)}
+.dana-concept.is-finished .dana-sequence>span:after{transform:scaleX(0)}
+.dana-concept{min-height:244px}
+@media(max-width:780px){.dana-concept{min-height:220px}.dana-final{top:69px;right:0;font-size:32px}.dana-story .dana-sentence{font-size:12px}.dana-story .eyebrow{margin-bottom:15px}}
+@media(prefers-reduced-motion:reduce){.dana-final,.dana-story .dana-sentence{transition:none}}
 </style>
 </head>
 <body class="at-title">
@@ -151,10 +168,17 @@
     </header>
     <main id="portfolio-main">
       <section class="designer-intro" aria-labelledby="designer-intro-title">
-        <div class="intro-heading"><span class="eyebrow">ABOUT ME</span><h1 id="designer-intro-title" tabindex="-1">게임 기획자 <strong>김단아</strong>입니다.</h1></div>
-        <div class="dana-concept" aria-label="DANA: Design, Art, Narrative, AI">
+        <div class="intro-heading dana-story" aria-label="기획자로서의 소개">
+          <span class="eyebrow">ABOUT ME</span>
+          <p class="dana-sentence is-active">사용자의 시선에서, UX를 디자인하던 경험을 살려</p>
+          <p class="dana-sentence">시스템과 경험의 구조를 설계하는 기획자입니다.</p>
+          <p class="dana-sentence">오랫동안 마음에 남는 세계와 캐릭터, 이야기를 만들며</p>
+          <p class="dana-sentence">항상 새로운 가능성을 향한 모험을 멈추지 않습니다.</p>
+        </div>
+        <div class="dana-concept" aria-label="DANA: Design, Architecture, Narrative, Adventure">
           <div class="dana-sequence" aria-hidden="true"><span class="is-current">D</span><span>A</span><span>N</span><span>A</span></div>
           <div class="dana-word" aria-hidden="true"><span class="dana-letter dana-initial" style="--letter:0">D</span><span class="dana-letter" style="--letter:1">E</span><span class="dana-letter" style="--letter:2">S</span><span class="dana-letter" style="--letter:3">I</span><span class="dana-letter" style="--letter:4">G</span><span class="dana-letter" style="--letter:5">N</span></div>
+          <h1 class="dana-final" id="designer-intro-title" tabindex="-1">게임 기획자<br><strong>김단아</strong>입니다.</h1>
         </div>
         <div class="intro-specialties intro-capabilities" aria-label="기획과 디자인 역량">
           <div class="intro-skill"><strong id="intro-character-title">캐릭터 매력 설계</strong><span id="intro-character-copy">성격·말투·관계를 연결해 매력이 드러나는 설정 기획</span></div>
@@ -280,20 +304,21 @@
 </script>
 
 <script>
-/* A lit initial drops from its matching letter in the compact DANA name. */
+/* Play DANA once, highlight its matching sentence, then leave the name. */
 (()=>{
   const panel=document.querySelector('.dana-concept'),word=panel?.querySelector('.dana-word');
   if(!word)return;
-  const labels=['DESIGN','ART','NARRATIVE','AI'],steps=[...panel.querySelectorAll('.dana-sequence>span')];
+  const labels=['DESIGN','ARCHITECTURE','NARRATIVE','ADVENTURE'];
+  const steps=[...panel.querySelectorAll('.dana-sequence>span')],story=document.querySelector('.dana-story'),sentences=[...story.querySelectorAll('.dana-sentence')];
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let index=0,timer=0,inView=false,active=false;
+  let index=0,timer=0,inView=false,active=false,done=false,started=false;
   function position(){
+    if(done)return;
     word.style.fontSize='';
     const source=steps[index].getBoundingClientRect(),bounds=word.getBoundingClientRect();
     const x=Math.max(0,source.left-bounds.left);
     word.style.setProperty('--anchor-x',x+'px');
-    const natural=[...word.children].reduce((sum,el)=>sum+el.offsetWidth,0);
-    const available=word.clientWidth-x-4;
+    const natural=[...word.children].reduce((sum,el)=>sum+el.offsetWidth,0),available=word.clientWidth-x-4;
     if(natural>available&&available>0)word.style.fontSize=(parseFloat(getComputedStyle(word).fontSize)*available/natural)+'px';
     word.style.setProperty('--drop-y',(source.top-word.getBoundingClientRect().top)+'px');
     word.style.setProperty('--drop-scale',String(parseFloat(getComputedStyle(steps[index]).fontSize)/parseFloat(getComputedStyle(word).fontSize)));
@@ -301,33 +326,39 @@
   function render(){
     word.classList.remove('is-switching');
     steps.forEach((step,i)=>step.classList.toggle('is-current',i===index));
+    sentences.forEach((line,i)=>line.classList.toggle('is-active',i===index));
     word.replaceChildren(...[...labels[index]].map((letter,i)=>{
       const span=document.createElement('span');span.className='dana-letter'+(i===0?' dana-initial':'');
       span.style.setProperty('--letter',i);span.textContent=letter;return span;
     }));
     position();
   }
-  function canRun(){return inView&&!document.hidden&&!document.body.classList.contains('at-title')&&!reduced.matches;}
+  function finish(){
+    clearTimeout(timer);done=true;panel.classList.add('is-finished');story.classList.add('is-complete');
+    steps.forEach(step=>step.classList.remove('is-current'));
+    sentences.forEach(line=>line.classList.remove('is-active'));
+  }
+  function canRun(){return inView&&!document.hidden&&!document.body.classList.contains('at-title')&&!done;}
   function cycle(){
     clearTimeout(timer);if(!canRun())return;
     timer=setTimeout(()=>{
       if(!canRun())return;
       word.classList.add('is-switching');
-      timer=setTimeout(()=>{index=(index+1)%labels.length;render();cycle();},530);
+      timer=setTimeout(()=>{if(index===labels.length-1){finish();return;}index++;render();cycle();},530);
     },3200);
   }
   function update(){
     const next=canRun();clearTimeout(timer);
-    if(next&&!active)render();
+    if(next&&!started){started=true;render();}
     active=next;
-    if(active)cycle();else word.classList.remove('is-switching');
+    if(active){if(reduced.matches)finish();else{word.classList.remove('is-switching');cycle();}}
   }
   new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;update();},{threshold:.25}).observe(panel);
   new MutationObserver(update).observe(document.body,{attributes:true,attributeFilter:['class']});
   document.addEventListener('visibilitychange',update);
   addEventListener('resize',position,{passive:true});
   document.fonts?.ready.then(position);
-  reduced.addEventListener('change',()=>{index=0;render();update();});
+  reduced.addEventListener('change',update);
   position();
 })();
 </script>
