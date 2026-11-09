@@ -110,6 +110,21 @@
 @keyframes dana-letter-out{from{opacity:1;transform:translateY(0);filter:blur(0)}to{opacity:0;transform:translateY(-85%);filter:blur(4px)}}
 @media(max-width:780px){.designer-intro{grid-template-columns:1fr}.designer-intro .intro-heading{grid-column:1;grid-row:2;padding-left:0}.dana-concept{grid-column:1;grid-row:1;padding:5px 0 19px;border-right:0}.dana-word{font-size:clamp(30px,8.3vw,60px)}.dana-sequence{margin-top:8px;gap:17px}}
 @media(prefers-reduced-motion:reduce){.dana-letter,.dana-word.is-switching .dana-letter{animation:none;will-change:auto}.dana-sequence>span{transition:none}}
+
+/* Refined DANA typography and masked transitions. */
+.dana-concept{padding-top:20px;padding-bottom:23px}
+.dana-word{font-size:clamp(30px,4.8vw,80px);font-weight:400;letter-spacing:.065em;min-height:1.35em;line-height:1.25;padding:3px 0 8px}
+.dana-sequence{gap:22px;margin:0 0 21px;font-family:'Manrope',sans-serif;font-size:23px;font-weight:500;line-height:1.4;color:#aaa3a0;letter-spacing:0}
+.dana-sequence>span{position:relative;padding-bottom:7px;transition:color .6s}
+.dana-sequence>span:after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.dana-sequence .is-current:after{transform:scaleX(1)}
+.dana-sequence>small{margin-left:auto;align-self:center;font-size:10px;letter-spacing:.16em;color:#8d8791;font-weight:400}
+.dana-letter{animation:dana-reveal 1.1s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--letter)*46ms);will-change:transform,opacity,clip-path}
+.dana-word.is-switching .dana-letter{animation:dana-depart .65s cubic-bezier(.65,0,.35,1) both;animation-delay:calc(var(--letter)*24ms)}
+@keyframes dana-reveal{from{opacity:0;transform:translateY(105%);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:translateY(0);clip-path:inset(0 0 0 0)}}
+@keyframes dana-depart{from{opacity:1;transform:translateY(0);clip-path:inset(0 0 0 0)}to{opacity:0;transform:translateY(-100%);clip-path:inset(100% 0 0 0)}}
+@media(max-width:780px){.dana-word{font-size:clamp(28px,6.9vw,52px);letter-spacing:.075em}.dana-sequence{font-size:21px;gap:23px;margin-bottom:17px}}
+@media(prefers-reduced-motion:reduce){.dana-letter,.dana-word.is-switching .dana-letter{animation:none;will-change:auto}.dana-sequence>span,.dana-sequence>span:after{transition:none}}
 </style>
 </head>
 <body class="at-title">
@@ -142,8 +157,8 @@
       <section class="designer-intro" aria-labelledby="designer-intro-title">
         <div class="intro-heading"><span class="eyebrow">ABOUT ME</span><h1 id="designer-intro-title" tabindex="-1">게임 기획자 <strong>김단아</strong>입니다.</h1></div>
         <div class="dana-concept" aria-label="DANA: Design, Art, Narrative, AI">
+          <div class="dana-sequence" aria-hidden="true"><span class="is-current">D</span><span>A</span><span>N</span><span>A</span><small>01 / 04</small></div>
           <div class="dana-word" aria-hidden="true"><span class="dana-letter dana-initial" style="--letter:0">D</span><span class="dana-letter" style="--letter:1">E</span><span class="dana-letter" style="--letter:2">S</span><span class="dana-letter" style="--letter:3">I</span><span class="dana-letter" style="--letter:4">G</span><span class="dana-letter" style="--letter:5">N</span></div>
-          <div class="dana-sequence" aria-hidden="true"><span class="is-current">D</span><span>A</span><span>N</span><span>A</span><i></i><small>01 / 04</small></div>
         </div>
         <div class="intro-specialties intro-capabilities" aria-label="기획과 디자인 역량">
           <div class="intro-skill"><strong id="intro-character-title">캐릭터 매력 설계</strong><span id="intro-character-copy">성격·말투·관계를 연결해 매력이 드러나는 설정 기획</span></div>
@@ -288,8 +303,8 @@
     timer=setTimeout(()=>{
       if(!canRun())return;
       word.classList.add('is-switching');
-      timer=setTimeout(()=>{index=(index+1)%labels.length;render();schedule();},470);
-    },2600);
+      timer=setTimeout(()=>{index=(index+1)%labels.length;render();schedule();},820);
+    },3600);
   }
   const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;schedule();},{threshold:.25});
   observer.observe(panel);
