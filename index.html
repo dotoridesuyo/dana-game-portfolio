@@ -92,6 +92,24 @@
 @media(max-width:780px){.tool-icons{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.tool-icon>svg{width:26px;height:26px}}
 @media(max-width:420px){.tool-icons{grid-template-columns:repeat(3,minmax(0,1fr))}.tool-icon{aspect-ratio:auto;min-height:58px}}
 @media(prefers-reduced-motion:reduce){.tool-icon{transition:none}.tool-icon:hover,.tool-icon:focus-visible{transform:none}}
+
+/* DANA concept: staggered letter reveal in the existing introduction. */
+.designer-intro{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr)}
+.designer-intro .intro-heading{grid-column:1;grid-row:1}
+.dana-concept{grid-column:2;grid-row:1;min-width:0;padding:13px 0 12px 28px;border-left:1px solid #dfc59a25}
+.dana-word{display:flex;align-items:center;min-height:1.25em;font-family:'Manrope',sans-serif;font-size:clamp(30px,5.1vw,86px);font-weight:500;line-height:1.2;letter-spacing:-.055em;color:var(--paper);white-space:nowrap;overflow:hidden;padding:4px 2px 8px}
+.dana-initial{color:var(--gold)}
+.dana-letter{display:inline-block;animation:dana-letter-in .68s cubic-bezier(.2,.75,.2,1) both;animation-delay:calc(var(--letter)*38ms);will-change:transform,opacity,filter}
+.dana-word.is-switching .dana-letter{animation:dana-letter-out .32s cubic-bezier(.55,0,.8,.3) both;animation-delay:calc(var(--letter)*14ms)}
+.dana-sequence{display:flex;align-items:center;gap:17px;margin-top:12px;color:#787581;font-size:10px;line-height:1.5;letter-spacing:.12em}
+.dana-sequence>span{transition:color .3s}
+.dana-sequence .is-current{color:var(--gold)}
+.dana-sequence>i{width:35px;height:1px;background:#dfc59a40;margin-left:5px}
+.dana-sequence>small{font-size:9px;letter-spacing:.12em;color:#aaa2a0}
+@keyframes dana-letter-in{from{opacity:0;transform:translateY(90%) rotateX(-40deg);filter:blur(5px)}to{opacity:1;transform:translateY(0) rotateX(0);filter:blur(0)}}
+@keyframes dana-letter-out{from{opacity:1;transform:translateY(0);filter:blur(0)}to{opacity:0;transform:translateY(-85%);filter:blur(4px)}}
+@media(max-width:780px){.designer-intro{grid-template-columns:1fr}.designer-intro .intro-heading{grid-column:1;grid-row:auto}.dana-concept{grid-column:1;grid-row:auto;padding:5px 0 19px;border-left:0}.dana-word{font-size:clamp(30px,8.3vw,60px)}.dana-sequence{margin-top:8px;gap:17px}}
+@media(prefers-reduced-motion:reduce){.dana-letter,.dana-word.is-switching .dana-letter{animation:none;will-change:auto}.dana-sequence>span{transition:none}}
 </style>
 </head>
 <body class="at-title">
@@ -123,7 +141,10 @@
     <main id="portfolio-main">
       <section class="designer-intro" aria-labelledby="designer-intro-title">
         <div class="intro-heading"><span class="eyebrow">ABOUT ME</span><h1 id="designer-intro-title" tabindex="-1">게임 기획자 <strong>김단아</strong>입니다.</h1></div>
-        <div class="intro-copy"><p class="intro-lead">캐릭터의 매력을 기획하고, 의도를 정확히 전달합니다.</p><p>캐릭터를 깊이 즐기고 직접 창작하며 쌓은 이해를 성격·말투·관계 기획에 담습니다.<br>디자인 전공과 제작 경험을 바탕으로 캐릭터의 매력을 살릴 표현을 판단하고,<br>아트 직군에 기획 의도와 표현 기준을 명확히 전달합니다.</p></div>
+        <div class="dana-concept" aria-label="DANA: Design, Art, Narrative, AI">
+          <div class="dana-word" aria-hidden="true"><span class="dana-letter dana-initial" style="--letter:0">D</span><span class="dana-letter" style="--letter:1">E</span><span class="dana-letter" style="--letter:2">S</span><span class="dana-letter" style="--letter:3">I</span><span class="dana-letter" style="--letter:4">G</span><span class="dana-letter" style="--letter:5">N</span></div>
+          <div class="dana-sequence" aria-hidden="true"><span class="is-current">D</span><span>A</span><span>N</span><span>A</span><i></i><small>01 / 04</small></div>
+        </div>
         <div class="intro-specialties intro-capabilities" aria-label="기획과 디자인 역량">
           <div class="intro-skill"><strong id="intro-character-title">캐릭터 매력 설계</strong><span id="intro-character-copy">성격·말투·관계를 연결해 매력이 드러나는 설정 기획</span></div>
           <div class="intro-skill"><strong id="intro-visual-title">표현 방향 판단</strong><span id="intro-visual-copy">캐릭터의 핵심 매력에 맞는 비주얼·연출 방향 설정</span></div>
@@ -239,6 +260,42 @@
   addEventListener('pageshow',layout);section.addEventListener('change',layout);
   new ResizeObserver(layout).observe(list);document.fonts?.ready.then(layout);
   reduced.addEventListener('change',schedule);schedule();
+})();
+</script>
+
+<script>
+/* Rotate D / A / N / A only while the introduction is actually visible. */
+(()=>{
+  const panel=document.querySelector('.dana-concept'),word=panel?.querySelector('.dana-word');
+  if(!word)return;
+  const labels=['DESIGN','ART','NARRATIVE','AI'],steps=[...panel.querySelectorAll('.dana-sequence>span')],counter=panel.querySelector('small');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let index=0,timer=0,inView=false;
+  function render(){
+    word.replaceChildren(...[...labels[index]].map((letter,i)=>{
+      const span=document.createElement('span');
+      span.className='dana-letter'+(i===0?' dana-initial':'');
+      span.style.setProperty('--letter',i);span.textContent=letter;return span;
+    }));
+    steps.forEach((step,i)=>step.classList.toggle('is-current',i===index));
+    counter.textContent=String(index+1).padStart(2,'0')+' / 04';
+    word.classList.remove('is-switching');
+  }
+  function canRun(){return inView&&!document.hidden&&!document.body.classList.contains('at-title')&&!reduced.matches;}
+  function schedule(){
+    clearTimeout(timer);
+    if(!canRun()){word.classList.remove('is-switching');return;}
+    timer=setTimeout(()=>{
+      if(!canRun())return;
+      word.classList.add('is-switching');
+      timer=setTimeout(()=>{index=(index+1)%labels.length;render();schedule();},470);
+    },2600);
+  }
+  const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;schedule();},{threshold:.25});
+  observer.observe(panel);
+  new MutationObserver(schedule).observe(document.body,{attributes:true,attributeFilter:['class']});
+  document.addEventListener('visibilitychange',schedule);
+  reduced.addEventListener('change',()=>{index=0;render();schedule();});
 })();
 </script>
 </body>
