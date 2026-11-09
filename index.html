@@ -94,9 +94,9 @@
 @media(prefers-reduced-motion:reduce){.tool-icon{transition:none}.tool-icon:hover,.tool-icon:focus-visible{transform:none}}
 
 /* DANA concept: staggered letter reveal in the existing introduction. */
-.designer-intro{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr)}
-.designer-intro .intro-heading{grid-column:1;grid-row:1}
-.dana-concept{grid-column:2;grid-row:1;min-width:0;padding:13px 0 12px 28px;border-left:1px solid #dfc59a25}
+.designer-intro{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr)}
+.designer-intro .intro-heading{grid-column:2;grid-row:1;padding-left:28px}
+.dana-concept{grid-column:1;grid-row:1;min-width:0;padding:13px 28px 12px 0;border-right:1px solid #dfc59a25}
 .dana-word{display:flex;align-items:center;min-height:1.25em;font-family:'Manrope',sans-serif;font-size:clamp(30px,5.1vw,86px);font-weight:500;line-height:1.2;letter-spacing:-.055em;color:var(--paper);white-space:nowrap;overflow:hidden;padding:4px 2px 8px}
 .dana-initial{color:var(--gold)}
 .dana-letter{display:inline-block;animation:dana-letter-in .68s cubic-bezier(.2,.75,.2,1) both;animation-delay:calc(var(--letter)*38ms);will-change:transform,opacity,filter}
@@ -108,7 +108,7 @@
 .dana-sequence>small{font-size:9px;letter-spacing:.12em;color:#aaa2a0}
 @keyframes dana-letter-in{from{opacity:0;transform:translateY(90%) rotateX(-40deg);filter:blur(5px)}to{opacity:1;transform:translateY(0) rotateX(0);filter:blur(0)}}
 @keyframes dana-letter-out{from{opacity:1;transform:translateY(0);filter:blur(0)}to{opacity:0;transform:translateY(-85%);filter:blur(4px)}}
-@media(max-width:780px){.designer-intro{grid-template-columns:1fr}.designer-intro .intro-heading{grid-column:1;grid-row:auto}.dana-concept{grid-column:1;grid-row:auto;padding:5px 0 19px;border-left:0}.dana-word{font-size:clamp(30px,8.3vw,60px)}.dana-sequence{margin-top:8px;gap:17px}}
+@media(max-width:780px){.designer-intro{grid-template-columns:1fr}.designer-intro .intro-heading{grid-column:1;grid-row:2;padding-left:0}.dana-concept{grid-column:1;grid-row:1;padding:5px 0 19px;border-right:0}.dana-word{font-size:clamp(30px,8.3vw,60px)}.dana-sequence{margin-top:8px;gap:17px}}
 @media(prefers-reduced-motion:reduce){.dana-letter,.dana-word.is-switching .dana-letter{animation:none;will-change:auto}.dana-sequence>span{transition:none}}
 </style>
 </head>
