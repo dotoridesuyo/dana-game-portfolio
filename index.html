@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="start.css">
   <link rel="stylesheet" href="portfolio-pages.css?v=20261102-r152">
   <script src="projects.js?v=20261102-heukryeon-first" defer></script>
-  <script src="layout-core.js?v=20261102-heukryeon-first" defer></script>
+  <script src="layout-core.js?v=20261111-intro" defer></script>
   <script src="app.js?v=20261102-r152" defer></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="6491b98f-eac5-47f5-8e5c-f50f919a721c"></script>
   <style>
@@ -93,24 +93,210 @@
 @media(max-width:420px){.tool-icons{grid-template-columns:repeat(3,minmax(0,1fr))}.tool-icon{aspect-ratio:auto;min-height:58px}}
 @media(prefers-reduced-motion:reduce){.tool-icon{transition:none}.tool-icon:hover,.tool-icon:focus-visible{transform:none}}
 
-/* Each DANA initial descends from its own position and unfolds a word. */
-.designer-intro{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr)}
-.designer-intro .intro-heading{grid-column:2;grid-row:1;padding-left:28px}
-.dana-concept{grid-column:1;grid-row:1;min-width:0;padding:20px 28px 23px 0;border-right:1px solid #dfc59a25}
-.dana-sequence{display:flex;align-items:center;gap:3px;margin:0 0 26px;color:#aaa3a0;font-family:'Manrope',sans-serif;font-size:25px;font-weight:500;line-height:1.4;letter-spacing:.015em}
-.dana-sequence>span{position:relative;padding-bottom:7px;transition:color .22s}
-.dana-sequence>span:after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.dana-sequence .is-current{color:var(--gold)}
-.dana-sequence .is-current:after{transform:scaleX(1)}
-.dana-word{display:flex;align-items:flex-start;min-width:0;min-height:1.4em;padding:0 0 8px var(--anchor-x,0px);font-family:'Manrope',sans-serif;font-size:clamp(30px,4.8vw,80px);font-weight:400;line-height:1.25;letter-spacing:.065em;color:var(--paper);white-space:nowrap;overflow:visible}
-.dana-letter{display:inline-block;animation:dana-unfold .62s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(480ms + var(--letter)*32ms);will-change:transform,opacity}
-.dana-initial{color:var(--gold);transform-origin:left top;animation:dana-initial-drop .82s cubic-bezier(.22,1,.36,1) both;animation-delay:160ms}
-.dana-word.is-switching .dana-letter{animation:dana-clear .4s cubic-bezier(.4,0,.6,1) both;animation-delay:calc(var(--letter)*15ms)}
-@keyframes dana-initial-drop{0%{opacity:0;transform:translateY(var(--drop-y,-68px)) scale(var(--drop-scale,.4))}12%{opacity:1}100%{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes dana-unfold{from{opacity:0;transform:translateX(-.24em)}to{opacity:1;transform:translateX(0)}}
-@keyframes dana-clear{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(14px)}}
-@media(max-width:780px){.designer-intro{grid-template-columns:1fr}.designer-intro .intro-heading{grid-column:1;grid-row:2;padding-left:0}.dana-concept{grid-column:1;grid-row:1;padding:8px 0 20px;border-right:0}.dana-word{font-size:clamp(28px,6.9vw,52px);letter-spacing:.075em}.dana-sequence{font-size:23px;gap:3px;margin-bottom:24px}}
-@media(prefers-reduced-motion:reduce){.dana-letter,.dana-word.is-switching .dana-letter{animation:none;will-change:auto}.dana-sequence>span,.dana-sequence>span:after{transition:none}}
+.topbar {
+  height: 62px;
+  justify-content: flex-end;
+}
+
+.designer-intro {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 22px clamp(20px, 2.5vw, 35px);
+  padding-inline: 0;
+}
+
+.dana-concept {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-template: 26px 1fr / minmax(0, 1fr);
+  row-gap: 32px;
+  min-width: 0;
+  min-height: 156px;
+  margin-inline-start: 32%;
+}
+
+.dana-sequence {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  color: #aaa3a0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: .05em;
+}
+
+.dana-sequence > span {
+  position: relative;
+  transition: color .22s;
+}
+
+.dana-sequence > span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s;
+}
+
+.dana-sequence .is-current,
+.dana-concept.is-finished .dana-sequence > span {
+  color: var(--gold);
+}
+
+.dana-sequence .is-current::after {
+  transform: scaleX(1);
+}
+
+.dana-word {
+  grid-area: 2 / 1;
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  padding-inline-start: var(--anchor-x, 0px);
+  color: var(--paper);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(30px, 4.8vw, 80px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: .065em;
+  white-space: nowrap;
+}
+
+.dana-letter {
+  display: inline-block;
+  animation: dana-unfold .62s cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: calc(480ms + var(--letter) * 32ms);
+}
+
+.dana-initial {
+  color: var(--gold);
+  transform-origin: left top;
+  animation: dana-initial-drop .82s cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: 160ms;
+}
+
+.dana-word.is-switching .dana-letter {
+  animation: dana-clear .4s cubic-bezier(.4, 0, .6, 1) both;
+  animation-delay: calc(var(--letter) * 15ms);
+}
+
+@keyframes dana-initial-drop {
+  0% { opacity: 0; transform: translateY(var(--drop-y, -68px)) scale(var(--drop-scale, .4)); }
+  12% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dana-unfold {
+  from { opacity: 0; transform: translateX(-.24em); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dana-clear {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(14px); }
+}
+
+.dana-final {
+  grid-area: 2 / 1;
+  align-self: start;
+  visibility: hidden;
+  opacity: 0;
+  margin: 0;
+  font-size: clamp(29px, 3.15vw, 42px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.055em;
+  transform: translateY(15px);
+  transition: opacity .8s, transform .8s, visibility .8s;
+}
+
+.dana-final .dana-role,
+.dana-final .dana-ending {
+  font-size: .73em;
+}
+
+.dana-final .dana-role {
+  display: block;
+}
+
+.dana-final .dana-name-line {
+  display: block;
+  margin: .14em 0 0 1.8em;
+  white-space: nowrap;
+}
+
+.dana-final strong {
+  margin-inline-end: .16em;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.dana-concept.is-finished .dana-word {
+  visibility: hidden;
+}
+
+.dana-concept.is-finished .dana-final {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dana-story {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  margin-inline-start: 11%;
+  padding-top: 51px;
+}
+
+.dana-paragraph {
+  font-size: clamp(13px, 1.12vw, 15px);
+  line-height: 1.63;
+  letter-spacing: -.025em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.dana-story .dana-sentence {
+  margin: 0;
+  color: rgba(244, 240, 231, .6);
+  transition: color .65s;
+}
+
+.dana-story .dana-sentence.is-active {
+  color: var(--paper);
+}
+
+.dana-story.is-complete .dana-sentence {
+  color: rgba(244, 240, 231, .8);
+}
+
+@media (max-width: 780px) {
+  .topbar { height: 64px; }
+  .designer-intro { grid-template-columns: minmax(0, 1fr); row-gap: 22px; }
+  .dana-concept { min-height: 124px; margin-inline: 5%; row-gap: 17px; }
+  .dana-word { font-size: clamp(28px, 6.9vw, 52px); }
+  .dana-final .dana-name-line { margin-inline-start: 1.45em; }
+  .dana-story { grid-column: 1; grid-row: 2; margin-inline: 5%; padding-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dana-letter,
+  .dana-word.is-switching .dana-letter { animation: none; }
+  .dana-sequence > span,
+  .dana-sequence > span::after,
+  .dana-final,
+  .dana-story .dana-sentence { transition: none; }
+}
 
 .contact-section{margin-top:34px;padding:64px 0 70px;border-top:1px solid var(--line)}
 .contact-section h2{font-family:'Manrope',sans-serif;font-size:clamp(34px,4.5vw,64px);font-weight:400;letter-spacing:-.035em;line-height:1.3;margin:15px 0 25px}
@@ -122,49 +308,6 @@
 @media(max-width:780px){.contact-section{padding:44px 0 50px;margin-top:24px}.contact-section h2{margin-bottom:21px}.contact-email{gap:20px}.contact-email svg{width:20px;height:20px}}
 @media(prefers-reduced-motion:reduce){.contact-email,.contact-email svg{transition:none}.contact-email:hover svg{transform:none}}
 
-/* A single DANA introduction, with matching lines and a permanent closing title. */
-.dana-concept{position:relative}
-.dana-story .eyebrow{margin-bottom:20px}
-.dana-story .dana-sentence{margin:0 0 10px;color:rgba(244,240,231,.3);font-size:clamp(12px,1.15vw,17px);font-weight:400;line-height:1.95;letter-spacing:-.025em;word-break:keep-all;transition:color .65s}
-.dana-story .dana-sentence:last-child{margin-bottom:0}
-.dana-story .dana-sentence.is-active{color:#f4f0e7}
-.dana-story.is-complete .dana-sentence{color:rgba(244,240,231,.8)}
-.dana-final{position:absolute;left:0;right:28px;top:82px;opacity:0;visibility:hidden;margin:0;font-size:clamp(26px,3vw,44px);font-weight:400;line-height:1.5;letter-spacing:-.05em;transform:translateY(15px);transition:opacity .8s,transform .8s,visibility .8s}
-.dana-final strong{font-weight:800;color:var(--gold)}
-.dana-concept.is-finished .dana-word{visibility:hidden}
-.dana-concept.is-finished .dana-final{visibility:visible;opacity:1;transform:translateY(0)}
-.dana-concept.is-finished .dana-sequence>span{color:var(--gold)}
-.dana-concept.is-finished .dana-sequence>span:after{transform:scaleX(0)}
-.dana-concept{min-height:244px}
-@media(max-width:780px){.dana-concept{min-height:220px}.dana-final{top:69px;right:0;font-size:32px}.dana-story .dana-sentence{font-size:12px}.dana-story .eyebrow{margin-bottom:15px}}
-@media(prefers-reduced-motion:reduce){.dana-final,.dana-story .dana-sentence{transition:none}}
-
-/* Align the name and introduction to the supplied two-column composition. */
-.designer-intro .dana-story{align-self:stretch;display:flex;flex-direction:column;justify-content:flex-start;padding-top:20px;padding-bottom:23px}
-.dana-story .eyebrow{margin:0 0 42px;line-height:1.4}
-.dana-story .dana-sentence{margin:0;line-height:1.65}
-.dana-concept{min-height:200px}
-@media(max-width:780px){.designer-intro .dana-story{padding-top:0;padding-bottom:0}.dana-story .eyebrow{margin-bottom:22px}.dana-story .dana-sentence{line-height:1.7}.dana-concept{min-height:200px}}
-
-/* Shared top and bottom edges across both introduction columns. */
-.dana-concept{min-height:200px;padding-top:20px;padding-bottom:20px}
-.dana-sequence{font-size:20px;line-height:26px;gap:2px;margin:0 0 28px}
-.dana-sequence>span{padding-bottom:0}
-.dana-sequence>span:after{bottom:-4px}
-.designer-intro .dana-story{display:grid;grid-template-rows:26px 1fr;row-gap:28px;padding-top:20px;padding-bottom:20px}
-.dana-story .eyebrow{margin:0;height:26px;line-height:26px}
-.dana-paragraph{align-self:end}
-.dana-story .dana-sentence{line-height:1.65;margin:0}
-.dana-final{top:auto;bottom:20px;font-size:clamp(26px,2.7vw,40px);line-height:1.23;letter-spacing:-.055em}
-@media(max-width:780px){.dana-concept{min-height:190px;padding-top:8px;padding-bottom:16px}.dana-sequence{font-size:20px}.dana-final{top:auto;bottom:16px;font-size:30px}.designer-intro .dana-story{padding-top:0;padding-bottom:0;row-gap:16px}.dana-story .eyebrow{margin:0;line-height:26px}.dana-paragraph{align-self:start}}
-
-/* Fine-tune introduction copy scale and closing name position. */
-.dana-story .dana-sentence{font-size:clamp(11px,1.05vw,15px)}
-.dana-final{bottom:32px}
-@media(max-width:780px){.dana-story .dana-sentence{font-size:11px}.dana-final{bottom:28px}}
-
-/* Keep the copy's bottom edge aligned with the raised closing title. */
-@media(min-width:781px){.designer-intro .dana-story{padding-bottom:32px}}
 </style>
 </head>
 <body class="at-title">
@@ -190,24 +333,25 @@
   <a class="skip" href="#project-title">프로젝트 소개로 바로가기</a>
   <div class="shell">
     <header class="topbar">
-      <a class="brand" href="index.html" aria-label="김단아 포트폴리오 홈"><span><strong>김단아</strong><small>GAME DESIGNER PORTFOLIO</small></span></a>
       <div class="header-actions"><button class="title-return" id="open-title">타이틀로</button><button class="profile-button" id="open-profile"><span class="profile-icon" aria-hidden="true">✧</span> 기획자 소개 <span aria-hidden="true">↗</span></button></div>
     </header>
     <main id="portfolio-main">
       <section class="designer-intro" aria-labelledby="designer-intro-title">
-        <div class="intro-heading dana-story" aria-label="기획자로서의 소개">
-          <span class="eyebrow">ABOUT ME</span>
-          <div class="dana-paragraph">
-          <p class="dana-sentence is-active">사용자의 시선에서, UX를 디자인하던 경험을 살려</p>
-          <p class="dana-sentence">시스템과 경험의 구조를 설계하는 기획자입니다.</p>
-          <p class="dana-sentence">오랫동안 마음에 남는 세계와 캐릭터, 이야기를 만들며</p>
-          <p class="dana-sentence">항상 새로운 가능성을 향한 모험을 멈추지 않습니다.</p>
-          </div>
-        </div>
         <div class="dana-concept" aria-label="DANA: Design, Architecture, Narrative, Adventure">
           <div class="dana-sequence" aria-hidden="true"><span class="is-current">D</span><span>A</span><span>N</span><span>A</span></div>
           <div class="dana-word" aria-hidden="true"><span class="dana-letter dana-initial" style="--letter:0">D</span><span class="dana-letter" style="--letter:1">E</span><span class="dana-letter" style="--letter:2">S</span><span class="dana-letter" style="--letter:3">I</span><span class="dana-letter" style="--letter:4">G</span><span class="dana-letter" style="--letter:5">N</span></div>
-          <h1 class="dana-final" id="designer-intro-title" tabindex="-1">게임 기획자<br><strong>김단아</strong>입니다.</h1>
+          <h1 class="dana-final" id="designer-intro-title" tabindex="-1">
+            <span class="dana-role">게임 기획자</span>
+            <span class="dana-name-line"><strong>김단아</strong> <span class="dana-ending">입니다.</span></span>
+          </h1>
+        </div>
+        <div class="dana-story" aria-label="기획자로서의 소개">
+          <div class="dana-paragraph">
+            <p class="dana-sentence is-active">사용자의 시선에서, UX를 디자인하던 경험을 살려</p>
+            <p class="dana-sentence">시스템과 경험의 구조를 설계하는 기획자입니다.</p>
+            <p class="dana-sentence">오랫동안 마음에 남는 세계와 캐릭터, 이야기를 만들며</p>
+            <p class="dana-sentence">항상 새로운 가능성을 향한 모험을 멈추지 않습니다.</p>
+          </div>
         </div>
         <div class="intro-specialties intro-capabilities" aria-label="기획과 디자인 역량">
           <div class="intro-skill"><strong id="intro-character-title">캐릭터 매력 설계</strong><span id="intro-character-copy">성격·말투·관계를 연결해 매력이 드러나는 설정 기획</span></div>

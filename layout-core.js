@@ -10,10 +10,9 @@
     ['cardGap','카드 사이 간격',12,4,40],['cardTitleSize','카드 제목 글자',17,12,30],['cardNoteSize','카드 설명 글자',10,8,20]
   ].map(([id,label,value,min,max])=>({id,label,value,min,max}));
   const targets=[
-    ['brand-name','헤더 이름','.brand strong','projects','text'],['brand-role','헤더 직무','.brand small','projects','text'],
     
-    ['intro-title','소개 제목','#designer-intro-title','projects','text'],['intro-lead','소개 강조 문장','.intro-lead','projects','text'],
-    ['intro-description','소개 본문','.intro-copy>p:not(.intro-lead)','projects','text'],['intro-tags','소개 분야','.intro-specialties','projects','box'],
+    ['intro-title','소개 제목','#designer-intro-title','projects','text'],
+    ['intro-description','소개 본문','.dana-paragraph','projects','text'],['intro-tags','소개 분야','.intro-specialties','projects','box'],
     ['intro-character-title','캐릭터 매력 설계 제목','#intro-character-title','projects','text'],['intro-character-copy','캐릭터 매력 설계 설명','#intro-character-copy','projects','text'],
     ['intro-visual-title','표현 방향 판단 제목','#intro-visual-title','projects','text'],['intro-visual-copy','표현 방향 판단 설명','#intro-visual-copy','projects','text'],
     ['intro-production-title','협업 소통 제목','#intro-production-title','projects','text'],['intro-production-copy','협업 소통 설명','#intro-production-copy','projects','text'],
