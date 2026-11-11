@@ -46,6 +46,10 @@ const projects = [
     ],
     "links": [
       {
+        "label": "캐릭터 기획서 보기",
+        "url": "https://dotoridesuyo.github.io/dana-game-portfolio/assets/heukryeon-concept.html"
+      },
+      {
         "label": "기획 파일 보기",
         "url": "https://docs.google.com/spreadsheets/d/1GwfyC73z-HrUrqqLB0Bpcd2prurVJK4pTMSCinAKMvI/edit?usp=sharing"
       }
