@@ -15,7 +15,7 @@ function selectProject(index,{scroll=false}={}){
   const stageBackground=document.querySelector('#stage-background');
   stageBackground.dataset.project=p.id;
   stageBackground.style.backgroundImage=p.character===p.background?'none':`url("assets/${p.background}")`;
-  display.innerHTML=`<div class="hero-art" aria-hidden="true"><span class="project-roman">${p.roman}</span><div class="art-orbit"></div><span class="art-spark">✧</span>${p.character?`<img class="hero-character ${p.characterClass||''}" src="assets/${p.character}" alt="">${p.id==='halloween'?`<img class="small-ghost" src="assets/portfolio-20261027/baby-ghost.webp" alt="">`:''}`:''}</div><div class="project-info"><p class="project-type">PROJECT ${number(selected)} — ${escapeHTML(p.type)}</p><div class="project-source">${escapeHTML(p.source)}</div><h2 id="project-title" tabindex="-1">${escapeHTML(p.title).replace(/\n/g,'<br>')}</h2><p class="project-subtitle">${escapeHTML(p.subtitle)}</p><p class="project-hook">${escapeHTML(p.hook).replace(/\n/g,'<br>')}</p><p class="project-description">${escapeHTML(p.description)}</p><div class="info-row"><strong>기획 범위</strong><span>${escapeHTML(p.scope)}</span></div><div class="info-row"><strong>설계 흐름</strong><span>${escapeHTML(p.structure)}</span></div><div class="project-tags">${p.tags.map(t=>`<span>${escapeHTML(t)}</span>`).join('')}</div><div class="project-actions"><div class="resource-links" aria-label="프로젝트 관련 링크">${p.links.map(link=>link.url?`<a class="resource-link" href="${escapeHTML(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(link.label)} (새 탭)"><span>${escapeHTML(link.label)}</span><span aria-hidden="true">↗</span></a>`:`<button class="resource-link" disabled><span>${escapeHTML(link.label)}</span><span class="resource-pending">준비 중</span></button>`).join('')}</div><button class="detail-button" id="open-detail"><span>자세히 보기</span><span aria-hidden="true">↗</span></button></div><p class="preview-note">포트폴리오 이미지 ${p.pages.length}장</p></div>`;
+  display.innerHTML=`<div class="hero-art" aria-hidden="true"><span class="project-roman">${p.roman}</span><div class="art-orbit"></div><span class="art-spark">✧</span>${p.character?`<img class="hero-character ${p.characterClass||''}" src="assets/${p.character}" alt="">${p.id==='halloween'?`<img class="small-ghost" src="assets/portfolio-20261027/baby-ghost.webp" alt="">`:''}`:''}</div><div class="project-info"><p class="project-type">PROJECT ${number(selected)} — ${escapeHTML(p.type)}</p><div class="project-source">${escapeHTML(p.source)}</div><h2 id="project-title" tabindex="-1">${escapeHTML(p.title).replace(/\n/g,'<br>')}</h2><p class="project-subtitle">${escapeHTML(p.subtitle)}</p><p class="project-hook">${escapeHTML(p.hook).replace(/\n/g,'<br>')}</p><p class="project-description">${escapeHTML(p.description)}</p><div class="info-row"><strong>기획 범위</strong><span>${escapeHTML(p.scope)}</span></div><div class="info-row"><strong>${escapeHTML(p.structureLabel ?? "설계 흐름")}</strong><span>${escapeHTML(p.structure)}</span></div><div class="project-tags">${p.tags.map(t=>`<span>${escapeHTML(t)}</span>`).join('')}</div><div class="project-actions"><div class="resource-links" aria-label="프로젝트 관련 링크">${p.links.map(link=>link.url?`<a class="resource-link" href="${escapeHTML(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(link.label)} (새 탭)"><span>${escapeHTML(link.label)}</span><span aria-hidden="true">↗</span></a>`:`<button class="resource-link" disabled><span>${escapeHTML(link.label)}</span><span class="resource-pending">준비 중</span></button>`).join('')}</div><button class="detail-button" id="open-detail"><span>자세히 보기</span><span aria-hidden="true">↗</span></button></div><p class="preview-note">포트폴리오 이미지 ${p.pages.length}장</p></div>`;
   document.querySelector('#open-detail').addEventListener('click',openDetail);
   document.title=`${p.shortTitle} · 게임 기획자 김단아`;
   window.PortfolioLayout?.refresh();
@@ -146,3 +146,60 @@ window.PortfolioPreview={
 };
 if(editorPreview)enterPortfolio();else openTitle();
 
+
+
+(() => {
+  const tablist = document.querySelector('.portfolio-view-tabs');
+  const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+  const dialog = document.querySelector('#portfolio-art-dialog');
+  const fullImage = dialog.querySelector('img');
+  let selectedWork;
+
+  function selectTab(activeTab) {
+    tabs.forEach((tab) => {
+      const selected = tab === activeTab;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', (event) => {
+      let next;
+      switch (event.key) {
+        case 'ArrowLeft':
+        case 'ArrowRight':
+          next = tabs[(index + 1) % tabs.length];
+          break;
+        case 'Home':
+          next = tabs[0];
+          break;
+        case 'End':
+          next = tabs[tabs.length - 1];
+          break;
+        default:
+          return;
+      }
+      event.preventDefault();
+      selectTab(next);
+      next.focus();
+    });
+  });
+  document.querySelector('a.skip').addEventListener('click', () => selectTab(tabs[0]));
+
+  document.querySelectorAll('.portfolio-art-item').forEach((work) => {
+    work.addEventListener('click', () => {
+      selectedWork = work;
+      const thumbnail = work.querySelector('img');
+      const title = work.querySelector('span').firstChild.textContent.trim();
+      fullImage.src = thumbnail.currentSrc || thumbnail.src;
+      fullImage.alt = title;
+      dialog.querySelector('h2').textContent = title;
+      dialog.showModal();
+    });
+  });
+  dialog.querySelector('button').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => selectedWork?.focus({ preventScroll: true }));
+})();

@@ -7,12 +7,12 @@
   <meta name="description" content="캐릭터의 매력을 기획하고 의도를 정확히 전달하는 게임 기획자 김단아. 캐릭터 창작 경험과 디자인에 대한 이해를 바탕으로 성격·말투·관계와 표현 방향을 설계하고 아트 직군과 명확하게 소통합니다.">
   <title>김단아 · 게임 기획자 포트폴리오</title>
   <link rel="stylesheet" href="style.css?v=20261102-r151">
-  <link rel="stylesheet" href="start.css">
+  <link rel="stylesheet" href="start.css?v=20261121-intro-cleanup">
   <link rel="stylesheet" href="portfolio-pages.css?v=20261102-r152">
-  <script src="projects.js?v=20261111-heukryeon-concept" defer></script>
-  <script src="layout-core.js?v=20261111-intro" defer></script>
-  <script src="app.js?v=20261102-r152" defer></script>
+  <script src="projects.js?v=20261121-verdure-team-description" defer></script>
+  <script src="layout-core.js?v=20261121-intro-cleanup" defer></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="6491b98f-eac5-47f5-8e5c-f50f919a721c"></script>
+  <script src="app.js?v=20261121-art-release" defer></script>
   <style>
 /* Journey: scoped timeline below the project selection. */
 .journey{padding:82px 0 72px;border-top:1px solid var(--line);margin-top:28px;scroll-margin-top:28px}
@@ -287,7 +287,6 @@
   .dana-word { font-size: clamp(28px, 6.9vw, 52px); }
   .dana-final .dana-name-line { margin-inline-start: 1.45em; }
   .dana-story { grid-column: 1; grid-row: 2; margin-inline: 5%; padding-top: 0; }
-  .designer-intro > .intro-capabilities { margin-top: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -310,6 +309,56 @@
 @media(prefers-reduced-motion:reduce){.contact-email,.contact-email svg{transition:none}.contact-email:hover svg{transform:none}}
 
 </style>
+  <style>
+.portfolio-view-tabs {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding-inline: clamp(0px, 6.6vw, 84px);
+  border-bottom: 1px solid var(--line);
+}
+.portfolio-view-tabs button {
+  min-width: clamp(104px, 15vw, 176px);
+  min-height: 44px;
+  margin-bottom: -1px;
+  padding: 10px 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px 6px 0 0;
+  background: #10121a;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+.portfolio-view-tabs button:hover { color: var(--paper); border-color: #dfc59a80; }
+.portfolio-view-tabs button[aria-selected="true"] {
+  background: #1a1a23;
+  border-color: var(--gold);
+  border-bottom-color: #1a1a23;
+  color: var(--gold);
+}
+#art-view[hidden], #project-view[hidden] { display: none; }
+.portfolio-art-view { padding: 28px 0 25px; }
+.portfolio-art-heading { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: flex-end; justify-content: space-between; margin: 0 0 20px; }
+.portfolio-art-heading h2 { font-size: clamp(22px, 2.5vw, 32px); margin: 7px 0 0; letter-spacing: -.04em; }
+.portfolio-art-heading p { margin: 0; color: var(--muted); font-size: 12px; }
+.portfolio-art-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.portfolio-art-item { display: grid; gap: 0; min-width: 0; padding: 0; background: #181921; border: 1px solid var(--line); text-align: left; }
+.portfolio-art-item:hover { border-color: var(--gold); }
+.portfolio-art-item img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; }
+.portfolio-art-item > span { display: flex; justify-content: space-between; padding: 11px 14px; font-size: 13px; }
+.portfolio-art-item > span span { color: var(--gold); }
+#portfolio-art-dialog { box-sizing: border-box; width: min(980px, calc(100% - 32px)); max-height: 92dvh; padding: 16px; margin: auto; border: 1px solid var(--gold); background: var(--bg); color: var(--paper); }
+#portfolio-art-dialog::backdrop { background: #080910d9; }
+#portfolio-art-dialog header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+#portfolio-art-dialog h2 { margin: 0; font-size: 18px; }
+#portfolio-art-dialog button { border: 1px solid var(--line); background: transparent; width: 44px; height: 44px; }
+#portfolio-art-dialog img { display: block; width: 100%; max-height: 73dvh; object-fit: contain; }
+@media (max-width: 640px) {
+  .portfolio-view-tabs { padding-inline: 0; }
+  .portfolio-art-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+}
+  </style>
 </head>
 <body class="at-title">
   <dialog class="title-screen" id="title-screen" open data-phase="ready" aria-label="김단아 포트폴리오 시작 화면" aria-describedby="auto-start-note">
@@ -354,12 +403,13 @@
             <p class="dana-sentence">항상 새로운 가능성을 향한 모험을 멈추지 않습니다.</p>
           </div>
         </div>
-        <div class="intro-specialties intro-capabilities" aria-label="기획과 디자인 역량">
-          <div class="intro-skill"><strong id="intro-character-title">캐릭터 매력 설계</strong><span id="intro-character-copy">성격·말투·관계를 연결해 매력이 드러나는 설정 기획</span></div>
-          <div class="intro-skill"><strong id="intro-visual-title">표현 방향 판단</strong><span id="intro-visual-copy">캐릭터의 핵심 매력에 맞는 비주얼·연출 방향 설정</span></div>
-          <div class="intro-skill"><strong id="intro-production-title">정확한 협업 소통</strong><span id="intro-production-copy">디자인 이해를 바탕으로 기획 의도·표현 기준 전달</span></div>
-        </div>
       </section>
+
+      <div class="portfolio-view-tabs" role="tablist" aria-label="포트폴리오 작업">
+        <button type="button" role="tab" id="project-view-tab" aria-controls="project-view" aria-selected="true">프로젝트</button>
+        <button type="button" role="tab" id="art-view-tab" aria-controls="art-view" aria-selected="false" tabindex="-1">아트</button>
+      </div>
+      <div id="project-view" role="tabpanel" aria-labelledby="project-view-tab">
       <section class="selection-screen" aria-labelledby="archive-heading">
       <aside class="archive" aria-labelledby="archive-heading">
         <div class="archive-heading"><div><span class="eyebrow">PROJECT ARCHIVE</span><h2 id="archive-heading">프로젝트 선택</h2></div><span class="archive-count">06</span></div>
@@ -372,6 +422,32 @@
         <div id="project-display" class="project-display"></div>
       </section>
       </section>
+
+      </div>
+      <section class="portfolio-art-view" id="art-view" role="tabpanel" aria-labelledby="art-view-tab" hidden>
+        <header class="portfolio-art-heading">
+          <div><span class="eyebrow">ART GALLERY</span><h2>아트 갤러리</h2></div>
+          <p>예시 이미지 · 신록의 섬</p>
+        </header>
+        <div class="portfolio-art-grid">
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog">
+            <img src="assets/art-preview/memory.jpg" alt="">
+            <span>기억 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog">
+            <img src="assets/art-preview/letter.jpg" alt="">
+            <span>편지 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog">
+            <img src="assets/art-preview/delivery.jpg" alt="">
+            <span>택배 <span aria-hidden="true">↗</span></span>
+          </button>
+        </div>
+      </section>
+      <dialog id="portfolio-art-dialog" aria-labelledby="portfolio-art-title">
+        <header><h2 id="portfolio-art-title"></h2><button type="button" aria-label="그림 닫기">✕</button></header>
+        <img alt="">
+      </dialog>
       <section class="journey" id="journey" aria-labelledby="journey-title">
         <header class="journey-heading">
           <div><span class="eyebrow">EXPERIENCE</span><h2 id="journey-title">학력 및 주요 경험</h2></div>
@@ -420,7 +496,7 @@
     </main>
   </div>
   <dialog id="detail-dialog" class="gallery-dialog" aria-labelledby="dialog-title"><header class="gallery-header"><div><span class="eyebrow">PORTFOLIO PAGES</span><h2 id="dialog-title"></h2><p id="gallery-summary"></p></div><div class="gallery-tools"><button class="dialog-close" id="close-detail" aria-label="포트폴리오 이미지 닫기">✕</button></div></header><div id="detail-content" class="gallery-pages"></div></dialog>
-  <dialog id="profile-dialog" aria-labelledby="profile-title"><button class="dialog-close" id="close-profile" aria-label="기획자 소개 닫기">✕</button><span class="eyebrow">ABOUT THE DESIGNER</span><h2 id="profile-title">김단아<span>게임 기획자 포트폴리오</span></h2><p class="profile-lead">캐릭터의 매력을 설계하는<br>게임 기획자</p><p>캐릭터를 깊이 즐기고 직접 창작해 온 경험을 바탕으로, 어떤 설정과 표현이 매력을 만드는지 고민합니다. 이를 성격·말투·관계 기획에 연결합니다.</p><p>디자인 전공과 드로잉·AI 이미지 제작·포토샵 리터칭 경험은 캐릭터의 매력을 살릴 표현을 판단하는 기반입니다. 제작 과정에 대한 이해를 바탕으로 아트 직군에 기획 의도와 표현 기준을 명확히 전달합니다.</p><dl class="profile-capabilities"><div><dt>캐릭터 매력 설계</dt><dd>성격·말투·관계를 연결해 매력이 드러나는 설정 기획</dd></div><div><dt>표현 방향 판단</dt><dd>캐릭터의 핵심 매력에 맞는 비주얼·연출 방향 설정</dd></div><div><dt>정확한 협업 소통</dt><dd>디자인 이해를 바탕으로 기획 의도·표현 기준 전달</dd></div></dl><div class="profile-fields"><span>GAME DESIGN</span><span>CHARACTER</span><span>COMMUNICATION</span></div></dialog>
+  <dialog id="profile-dialog" aria-labelledby="profile-title"><button class="dialog-close" id="close-profile" aria-label="기획자 소개 닫기">✕</button><span class="eyebrow">ABOUT THE DESIGNER</span><h2 id="profile-title">김단아<span>게임 기획자 포트폴리오</span></h2><p class="profile-lead">캐릭터의 매력을 설계하는<br>게임 기획자</p><p>캐릭터를 깊이 즐기고 직접 창작해 온 경험을 바탕으로, 어떤 설정과 표현이 매력을 만드는지 고민합니다. 이를 성격·말투·관계 기획에 연결합니다.</p><p>디자인 전공과 드로잉·AI 이미지 제작·포토샵 리터칭 경험은 캐릭터의 매력을 살릴 표현을 판단하는 기반입니다. 제작 과정에 대한 이해를 바탕으로 아트 직군에 기획 의도와 표현 기준을 명확히 전달합니다.</p><div class="profile-fields"><span>GAME DESIGN</span><span>CHARACTER</span><span>COMMUNICATION</span></div></dialog>
   <noscript><p class="noscript">프로젝트 선택 기능은 자바스크립트가 필요합니다.</p></noscript>
 <script>
 /* Reveal the connected rail with one shared vertical scroll frontier. */
