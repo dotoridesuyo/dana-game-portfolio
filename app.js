@@ -196,6 +196,7 @@ if(editorPreview)enterPortfolio();else openTitle();
       const title = work.querySelector('span').firstChild.textContent.trim();
       dialog.classList.toggle('art-dialog-tall', work.dataset.tall === 'true');
       dialog.scrollTop = 0;
+      fullImage.style.setProperty('--art-mask', work.style.getPropertyValue('--art-mask'));
       fullImage.src = work.dataset.full || thumbnail.currentSrc || thumbnail.src;
       fullImage.alt = title;
       dialog.querySelector('h2').textContent = title;
