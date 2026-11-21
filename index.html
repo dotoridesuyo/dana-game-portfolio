@@ -342,6 +342,7 @@
 .portfolio-art-heading { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: flex-end; justify-content: space-between; margin: 0 0 20px; }
 .portfolio-art-heading h2 { font-size: clamp(22px, 2.5vw, 32px); margin: 7px 0 0; letter-spacing: -.04em; }
 .portfolio-art-heading p { margin: 0; color: var(--muted); font-size: 12px; }
+.portfolio-art-heading .portfolio-art-note { margin-top: 8px; }
 .portfolio-art-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .portfolio-art-item { display: grid; gap: 0; min-width: 0; padding: 0; background: #181921; border: 1px solid var(--line); text-align: left; }
 .portfolio-art-item:hover { border-color: var(--gold); }
@@ -426,7 +427,7 @@
       </div>
       <section class="portfolio-art-view" id="art-view" role="tabpanel" aria-labelledby="art-view-tab" hidden>
         <header class="portfolio-art-heading">
-          <div><span class="eyebrow">ART GALLERY</span><h2>아트 갤러리</h2></div>
+          <div><span class="eyebrow">ART GALLERY</span><h2>아트 갤러리</h2><p class="portfolio-art-note">아트 갤러리에 수록된 작품은 AI를 사용하지 않고 제작했습니다.</p></div>
           <p>예시 이미지 · 신록의 섬</p>
         </header>
         <div class="portfolio-art-grid">
