@@ -30,6 +30,9 @@ jobs:
           mkdir -p _site
           cp index.html app.js projects.js layout-core.js editor.html editor.js style.css start.css editor.css portfolio-pages.css .nojekyll mist-train-concept.html _site/
           unzip -q assets.zip -d _site/
+          if [ -f art-gallery.zip ]; then
+            unzip -q art-gallery.zip -d _site/
+          fi
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
