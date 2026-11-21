@@ -217,17 +217,17 @@
 .portfolio-art-heading p { margin: 0; color: var(--muted); font-size: 12px; }
 .portfolio-art-heading .portfolio-art-note { margin-top: 8px; }
 .portfolio-art-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.portfolio-art-item { display: grid; gap: 0; min-width: 0; padding: 0; background: #181921; border: 1px solid var(--line); text-align: left; }
+.portfolio-art-item { display: grid; gap: 0; min-width: 0; padding: 0; background: transparent; border: 1px solid var(--line); text-align: left; }
 .portfolio-art-item:hover { border-color: var(--gold); }
-.portfolio-art-item img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: contain; background: #eae8e4; }
-.portfolio-art-item > span { display: flex; justify-content: space-between; padding: 11px 14px; font-size: 13px; }
+.portfolio-art-item img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: contain; }
+.portfolio-art-item > span { display: flex; background: #181921; justify-content: space-between; padding: 11px 14px; font-size: 13px; }
 .portfolio-art-item > span span { color: var(--gold); }
 #portfolio-art-dialog { box-sizing: border-box; width: min(980px, calc(100% - 32px)); max-height: 92dvh; padding: 16px; margin: auto; border: 1px solid var(--gold); background: var(--bg); color: var(--paper); }
 #portfolio-art-dialog::backdrop { background: #080910d9; }
 #portfolio-art-dialog header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
 #portfolio-art-dialog h2 { margin: 0; font-size: 18px; }
 #portfolio-art-dialog button { border: 1px solid var(--line); background: transparent; width: 44px; height: 44px; }
-#portfolio-art-dialog img { display: block; width: 100%; max-height: 73dvh; object-fit: contain; background: #eae8e4; }
+#portfolio-art-dialog img { display: block; width: 100%; max-height: 73dvh; object-fit: contain; }
 #portfolio-art-dialog.art-dialog-tall { padding: 0; }
 #portfolio-art-dialog.art-dialog-tall header { position: sticky; top: 0; margin: 0; padding: 8px 16px; background: var(--bg); }
 #portfolio-art-dialog.art-dialog-tall img { max-height: none; height: auto; }
@@ -351,336 +351,336 @@
             <img src="assets/art-gallery/11-thumb.webp" alt="" loading="lazy" decoding="async">
             <span>일러스트 11 <span aria-hidden="true">↗</span></span>
           </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/12.webp">
-            <img src="assets/art-gallery/12-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 12 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/13.webp">
-            <img src="assets/art-gallery/13-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 13 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/14.webp">
-            <img src="assets/art-gallery/14-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 14 <span aria-hidden="true">↗</span></span>
-          </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/15.webp">
             <img src="assets/art-gallery/15-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 15 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 12 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/16.webp">
             <img src="assets/art-gallery/16-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 16 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/17.webp">
-            <img src="assets/art-gallery/17-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 17 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 13 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/18.webp">
             <img src="assets/art-gallery/18-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 18 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 14 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/19.webp">
             <img src="assets/art-gallery/19-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 19 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 15 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/20.webp">
             <img src="assets/art-gallery/20-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 20 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 16 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/21.webp">
             <img src="assets/art-gallery/21-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 21 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 17 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/22.webp" data-tall="true">
             <img src="assets/art-gallery/22-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 22 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 18 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/23.webp">
             <img src="assets/art-gallery/23-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 23 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/24.webp">
-            <img src="assets/art-gallery/24-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 24 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 19 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/25.webp">
             <img src="assets/art-gallery/25-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 25 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 20 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/26.webp">
             <img src="assets/art-gallery/26-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 26 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/27.webp">
-            <img src="assets/art-gallery/27-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 27 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 21 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/28.webp">
             <img src="assets/art-gallery/28-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 28 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 22 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/29.webp">
             <img src="assets/art-gallery/29-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 29 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 23 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/30.webp">
             <img src="assets/art-gallery/30-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 30 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 24 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/31.webp">
             <img src="assets/art-gallery/31-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 31 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/32.webp">
-            <img src="assets/art-gallery/32-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 32 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/33.webp">
-            <img src="assets/art-gallery/33-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 33 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/34.webp">
-            <img src="assets/art-gallery/34-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 34 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 25 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/35.webp">
             <img src="assets/art-gallery/35-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 35 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 26 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/36.webp">
             <img src="assets/art-gallery/36-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 36 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 27 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/37.webp">
             <img src="assets/art-gallery/37-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 37 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 28 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/38.webp">
             <img src="assets/art-gallery/38-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 38 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/39.webp">
-            <img src="assets/art-gallery/39-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 39 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/40.webp" data-tall="true">
-            <img src="assets/art-gallery/40-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 40 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/41.webp">
-            <img src="assets/art-gallery/41-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 41 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/42.webp">
-            <img src="assets/art-gallery/42-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 42 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 29 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/43.webp">
             <img src="assets/art-gallery/43-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 43 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 30 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/44.webp">
             <img src="assets/art-gallery/44-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 44 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 31 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/45.webp">
             <img src="assets/art-gallery/45-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 45 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 32 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/46.webp">
             <img src="assets/art-gallery/46-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 46 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 33 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/47.webp">
             <img src="assets/art-gallery/47-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 47 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 34 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/48.webp">
             <img src="assets/art-gallery/48-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 48 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 35 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/49.webp">
             <img src="assets/art-gallery/49-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 49 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/50.webp">
-            <img src="assets/art-gallery/50-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 50 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 36 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/51.webp">
             <img src="assets/art-gallery/51-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 51 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 37 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/52.webp" data-tall="true">
             <img src="assets/art-gallery/52-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 52 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 38 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/53.webp">
             <img src="assets/art-gallery/53-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 53 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 39 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/54.webp">
             <img src="assets/art-gallery/54-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 54 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 40 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/55.webp">
             <img src="assets/art-gallery/55-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 55 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/56.webp">
-            <img src="assets/art-gallery/56-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 56 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 41 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/57.webp">
             <img src="assets/art-gallery/57-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 57 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 42 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/58.webp">
             <img src="assets/art-gallery/58-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 58 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/59.webp">
-            <img src="assets/art-gallery/59-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 59 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 43 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/60.webp">
             <img src="assets/art-gallery/60-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 60 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 44 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/61.webp">
             <img src="assets/art-gallery/61-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 61 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/62.webp">
-            <img src="assets/art-gallery/62-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 62 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/63.webp">
-            <img src="assets/art-gallery/63-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 63 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 45 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/64.webp">
             <img src="assets/art-gallery/64-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 64 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 46 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/65.webp">
             <img src="assets/art-gallery/65-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 65 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 47 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/66.webp">
             <img src="assets/art-gallery/66-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 66 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/67.webp">
-            <img src="assets/art-gallery/67-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 67 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 48 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/68.webp">
             <img src="assets/art-gallery/68-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 68 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 49 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/69.webp">
             <img src="assets/art-gallery/69-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 69 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 50 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/70.webp">
             <img src="assets/art-gallery/70-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 70 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 51 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/71.webp">
             <img src="assets/art-gallery/71-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 71 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 52 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/72.webp">
             <img src="assets/art-gallery/72-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 72 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 53 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/73.webp">
             <img src="assets/art-gallery/73-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 73 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 54 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/74.webp">
             <img src="assets/art-gallery/74-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 74 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 55 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/75.webp">
             <img src="assets/art-gallery/75-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 75 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 56 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/76.webp">
             <img src="assets/art-gallery/76-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 76 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 57 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/77.webp">
             <img src="assets/art-gallery/77-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 77 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 58 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/78.webp">
             <img src="assets/art-gallery/78-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 78 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 59 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/79.webp" data-tall="true">
             <img src="assets/art-gallery/79-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 79 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 60 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/80.webp">
             <img src="assets/art-gallery/80-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 80 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/81.webp">
-            <img src="assets/art-gallery/81-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 81 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/82.webp">
-            <img src="assets/art-gallery/82-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 82 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 61 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/83.webp">
             <img src="assets/art-gallery/83-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 83 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 62 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/84.webp">
             <img src="assets/art-gallery/84-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 84 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 63 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/85.webp">
             <img src="assets/art-gallery/85-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 85 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 64 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/86.webp">
             <img src="assets/art-gallery/86-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 86 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 65 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/87.webp">
             <img src="assets/art-gallery/87-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 87 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 66 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/88.webp">
             <img src="assets/art-gallery/88-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 88 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 67 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/89.webp">
             <img src="assets/art-gallery/89-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 89 <span aria-hidden="true">↗</span></span>
-          </button>
-          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/90.webp">
-            <img src="assets/art-gallery/90-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 90 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 68 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/91.webp">
             <img src="assets/art-gallery/91-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 91 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 69 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/92.webp">
             <img src="assets/art-gallery/92-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 92 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 70 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/93.webp">
             <img src="assets/art-gallery/93-thumb.webp" alt="" loading="lazy" decoding="async">
-            <span>일러스트 93 <span aria-hidden="true">↗</span></span>
+            <span>일러스트 71 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/14.webp">
+            <img src="assets/art-gallery/14-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 72 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/24.webp">
+            <img src="assets/art-gallery/24-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 73 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/50.webp">
+            <img src="assets/art-gallery/50-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 74 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/56.webp">
+            <img src="assets/art-gallery/56-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 75 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/67.webp">
+            <img src="assets/art-gallery/67-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 76 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/81.webp">
+            <img src="assets/art-gallery/81-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 77 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/82.webp">
+            <img src="assets/art-gallery/82-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 78 <span aria-hidden="true">↗</span></span>
           </button>
           <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/94.webp">
             <img src="assets/art-gallery/94-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 79 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/12.webp">
+            <img src="assets/art-gallery/12-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 80 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/13.webp">
+            <img src="assets/art-gallery/13-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 81 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/17.webp">
+            <img src="assets/art-gallery/17-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 82 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/27.webp">
+            <img src="assets/art-gallery/27-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 83 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/32.webp">
+            <img src="assets/art-gallery/32-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 84 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/33.webp">
+            <img src="assets/art-gallery/33-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 85 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/34.webp">
+            <img src="assets/art-gallery/34-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 86 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/39.webp">
+            <img src="assets/art-gallery/39-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 87 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/40.webp" data-tall="true">
+            <img src="assets/art-gallery/40-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 88 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/41.webp">
+            <img src="assets/art-gallery/41-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 89 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/42.webp">
+            <img src="assets/art-gallery/42-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 90 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/59.webp">
+            <img src="assets/art-gallery/59-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 91 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/62.webp">
+            <img src="assets/art-gallery/62-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 92 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/63.webp">
+            <img src="assets/art-gallery/63-thumb.webp" alt="" loading="lazy" decoding="async">
+            <span>일러스트 93 <span aria-hidden="true">↗</span></span>
+          </button>
+          <button type="button" class="portfolio-art-item" aria-haspopup="dialog" data-full="assets/art-gallery/90.webp">
+            <img src="assets/art-gallery/90-thumb.webp" alt="" loading="lazy" decoding="async">
             <span>일러스트 94 <span aria-hidden="true">↗</span></span>
           </button>
         </div>
