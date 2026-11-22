@@ -79,72 +79,14 @@ profileDialog.addEventListener('close',()=>document.querySelector('#open-profile
 for(const dialog of [detailDialog,profileDialog])dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
 selectProject(0);
 
-// R110: GAME START → 눌림 효과 → 인사말 → 사이트 자동 진입.
-const titleScreen=document.querySelector('#title-screen');
-const startScene=document.querySelector('#start-scene');
-const welcomeScene=document.querySelector('#welcome-scene');
-const startGame=document.querySelector('#start-game');
-const introTimers=new Set();
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-function clearIntroTimers(){for(const timer of introTimers)clearTimeout(timer);introTimers.clear();}
-function scheduleIntro(callback,delay){const timer=setTimeout(()=>{introTimers.delete(timer);callback();},delay);introTimers.add(timer);}
-function openTitle({auto=true}={}){
-  clearIntroTimers();
-  if(titleScreen.open)titleScreen.close();
-  titleScreen.dataset.phase='ready';
-  startScene.inert=false;startScene.setAttribute('aria-hidden','false');
-  welcomeScene.inert=true;welcomeScene.setAttribute('aria-hidden','true');
-  document.body.classList.add('at-title');
-  document.body.classList.remove('portfolio-entered');
-  document.title='김단아 · 게임 기획자 포트폴리오';
-  titleScreen.showModal();
-  startGame.focus({preventScroll:true});
-  if(auto)scheduleIntro(playStart,reducedMotion.matches?650:950);
-}
-function playStart(){
-  if(!titleScreen.open||titleScreen.dataset.phase!=='ready')return;
-  clearIntroTimers();
-  titleScreen.dataset.phase='pressing';
-  scheduleIntro(()=>{
-    titleScreen.dataset.phase='greeting';
-    startScene.inert=true;startScene.setAttribute('aria-hidden','true');
-    welcomeScene.inert=false;welcomeScene.setAttribute('aria-hidden','false');
-    document.querySelector('#welcome-title').focus({preventScroll:true});
-    scheduleIntro(()=>{
-      titleScreen.dataset.phase='leaving';
-      scheduleIntro(enterPortfolio,reducedMotion.matches?0:420);
-    },reducedMotion.matches?1200:1750);
-  },reducedMotion.matches?100:330);
-}
-function enterPortfolio(){
-  clearIntroTimers();
-  titleScreen.dataset.phase='complete';
-  titleScreen.close();
-  document.body.classList.remove('at-title');
-  document.body.classList.add('portfolio-entered');
-  window.scrollTo({top:0,behavior:'instant'});
-  document.querySelector('#designer-intro-title').focus({preventScroll:true});
-  window.dispatchEvent(new CustomEvent('pf-scene-change',{detail:{scene:'projects'}}));
-}
-startGame.addEventListener('click',playStart);
-document.querySelector('#skip-intro').addEventListener('click',enterPortfolio);
-document.querySelector('#open-title').addEventListener('click',openTitle);
-titleScreen.addEventListener('cancel',e=>{e.preventDefault();enterPortfolio();});
-const editorPreview=new URLSearchParams(location.search).has('layoutPreview');
+// Keep layout previews on the portfolio now that the start screen is removed.
 window.PortfolioPreview={
   selectProject:index=>selectProject(index),
-  showScene(scene){
-    if(scene==='projects'){enterPortfolio();return;}
-    openTitle({auto:scene==='play'});
-    if(scene==='greeting'){
-      titleScreen.dataset.phase='greeting';
-      startScene.inert=true;startScene.setAttribute('aria-hidden','true');
-      welcomeScene.inert=false;welcomeScene.setAttribute('aria-hidden','false');
-    }
-    window.dispatchEvent(new CustomEvent('pf-scene-change',{detail:{scene}}));
+  showScene(){
+    window.scrollTo({top:0,behavior:'instant'});
+    window.dispatchEvent(new CustomEvent('pf-scene-change',{detail:{scene:'projects'}}));
   }
 };
-if(editorPreview)enterPortfolio();else openTitle();
 
 
 

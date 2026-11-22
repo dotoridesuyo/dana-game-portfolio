@@ -12,7 +12,7 @@
   <script src="projects.js?v=20261121-verdure-team-description" defer></script>
   <script src="layout-core.js?v=20261121-intro-cleanup" defer></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="6491b98f-eac5-47f5-8e5c-f50f919a721c"></script>
-  <script src="app.js?v=20261122-art-masks" defer></script>
+  <script src="app.js?v=20261123-direct-entry" defer></script>
   <style>
 /* Journey: scoped timeline below the project selection. */
 .journey{padding:82px 0 72px;border-top:1px solid var(--line);margin-top:28px;scroll-margin-top:28px}
@@ -244,30 +244,11 @@
 }
   </style>
 </head>
-<body class="at-title">
-  <dialog class="title-screen" id="title-screen" open data-phase="ready" aria-label="김단아 포트폴리오 시작 화면" aria-describedby="auto-start-note">
-    <div class="title-scenery" aria-hidden="true"></div><div class="title-frame" aria-hidden="true"></div>
-    <div class="title-center auto-title-center">
-      <div class="start-scene" id="start-scene">
-        <button class="start-game ornate-start" id="start-game" aria-label="PORTFOLIO START 시작 연출" autofocus>
-          <span class="button-effects" aria-hidden="true"><i class="button-rays"></i><i class="button-shine"></i></span>
-          <svg class="start-ornament" viewBox="0 0 480 108" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            <g class="ornament-pattern" fill="none" stroke="#8c6639" stroke-width="1.3" opacity=".22"><ellipse cx="240" cy="54" rx="119" ry="36" stroke-dasharray="1.3 5"/><ellipse cx="240" cy="54" rx="140" ry="41" stroke-dasharray="1.3 6"/><ellipse cx="240" cy="54" rx="160" ry="45" stroke-dasharray="1.3 7"/></g>
-            <g class="ornament-lines" fill="none" vector-effect="non-scaling-stroke"><rect x="4" y="4" width="472" height="100" rx="2" stroke="#b48c52" stroke-width="1.1"/><rect x="9" y="9" width="462" height="90" rx="1" stroke="#fff4cf" stroke-opacity=".7" stroke-width=".7"/><path d="M13 32 Q33 32 33 13 H447 Q447 32 467 32 V76 Q447 76 447 95 H33 Q33 76 13 76 Z" stroke="#fff1bc" stroke-width="1.25"/><path d="M53 18 H427 M53 90 H427" stroke="#9d7945" stroke-opacity=".55" stroke-width=".7"/></g>
-            <g class="ornament-stars" fill="#fff2bf" stroke="#b4894a" stroke-width=".45"><path d="M14 3 17 11 25 14 17 17 14 25 11 17 3 14 11 11Z"/><path d="M466 3 469 11 477 14 469 17 466 25 463 17 455 14 463 11Z"/><path d="M14 83 17 91 25 94 17 97 14 105 11 97 3 94 11 91Z"/><path d="M466 83 469 91 477 94 469 97 466 105 463 97 455 94 463 91Z"/></g>
-          </svg>
-          <strong>PORTFOLIO START</strong>
-        </button>
-        <p class="start-instruction" id="auto-start-note">잠시 후 포트폴리오가 시작됩니다.</p>
-      </div>
-      <div class="welcome-scene" id="welcome-scene" aria-hidden="true" inert><p class="title-eyebrow">GAME DESIGNER</p><h1 id="welcome-title" tabindex="-1">게임 기획자<br><strong>김단아</strong>입니다.</h1></div>
-    </div>
-    <button class="skip-intro" id="skip-intro">바로 보기 <span aria-hidden="true">↗</span></button>
-  </dialog>
+<body>
   <a class="skip" href="#project-title">프로젝트 소개로 바로가기</a>
   <div class="shell">
     <header class="topbar">
-      <div class="header-actions"><button class="title-return" id="open-title">타이틀로</button><button class="profile-button" id="open-profile"><span class="profile-icon" aria-hidden="true">✧</span> 기획자 소개 <span aria-hidden="true">↗</span></button></div>
+      <div class="header-actions"><button class="profile-button" id="open-profile"><span class="profile-icon" aria-hidden="true">✧</span> 기획자 소개 <span aria-hidden="true">↗</span></button></div>
     </header>
     <main id="portfolio-main">
       <section class="designer-intro" aria-labelledby="designer-intro-title">
