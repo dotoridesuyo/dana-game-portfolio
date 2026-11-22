@@ -97,7 +97,7 @@ const projects = [
         "url": "https://dotoridesuyo.github.io/dana-game-portfolio/assets/heukryeon-concept.html"
       },
       {
-        "label": "기획 파일 보기",
+        "label": "기획 Excel 원문 보기",
         "url": "https://docs.google.com/spreadsheets/d/1GwfyC73z-HrUrqqLB0Bpcd2prurVJK4pTMSCinAKMvI/edit?usp=sharing"
       }
     ],
@@ -205,7 +205,7 @@ const projects = [
     ],
     "links": [
       {
-        "label": "기획 파일 보기",
+        "label": "기획 Excel 원문 보기",
         "url": "https://docs.google.com/spreadsheets/d/1Th0tqZvmqm3-gnvEEzAT_szcpNDct0GyieqEcBxv5Ug/edit?usp=sharing"
       }
     ]
