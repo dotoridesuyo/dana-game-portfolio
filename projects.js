@@ -37,8 +37,8 @@ const projects = [
     ],
     "links": [
       {
-        "label": "기획 사이트 보기",
-        "url": "https://dotoridesuyo.github.io/isle-of-verdure-portfolio/"
+        "label": "컨셉 사이트 보기",
+        "url": "https://dotoridesuyo.github.io/isle-of-verdure-portfolio/portfolio-concepts/"
       },
       {
         "label": "웹 체험판 플레이",
