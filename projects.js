@@ -5,8 +5,8 @@ const projects = [
     "title": "신록의 섬",
     "shortTitle": "신록의 섬",
     "english": "ISLE OF VERDURE",
-    "type": "GAME & SYSTEM DESIGN",
-    "source": "2인 게임 개발 프로젝트 · 웹 체험판 · 10일",
+    "type": "GAME DESIGN",
+    "source": "2인 게임 개발 프로젝트 · 10일",
     "subtitle": "탐험과 재배로 섬을 회복하는 힐링 가드닝 게임",
     "image": "portfolio-20261027/leaf.webp",
     "background": "portfolio-20261027/leaf.webp",
@@ -18,11 +18,7 @@ const projects = [
     "scope": "게임 전반적 기획 및 UI",
     "structureLabel": "AI 작업 흐름",
     "structure": "씨앗 발견 → 재배·수확 → 정화 물약 제작 → 새 지역 탐험",
-    "tags": [
-      "시스템 기획",
-      "온보딩 설계",
-      "웹 체험판"
-    ],
+    "tags": [],
     "pages": [
       {
         "number": 19,
